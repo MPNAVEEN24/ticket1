@@ -1,0 +1,38 @@
+package main
+import (
+  "html/template"
+  "net/http"
+  "fmt"
+  "time"
+)
+type Show struct {
+	ShowTime int
+	ShowName string
+	Date time.Time
+	Tickets int
+ }
+func main(){
+	tmpl :=template.Must(template.ParseFiles("moviebooking.html"))
+	  http.HandleFunc("/",func(w http.ResponseWriter, r *http.Request) {
+	  if r.Method != http.MethodPost {
+		tmpl.Execute(w,nil)
+		return
+		}
+		list_of_movies:=[]Show{} {
+			for(i=0;i<3;i++) {
+				
+			}
+		}
+	/*	details:=Show {
+            ShowTime:  r.FormValue("ShowTime"),
+            ShowName: r.FormValue("ShowName"),
+			Date: r.FormValue("Date"),
+			Tickets: r.FormValue("Tickets"),
+	   }
+	   fmt.Fprintf(details)
+*/	})
+
+		fmt.Printf("listening...8087")
+ 		http.ListenAndServe(":8087",nil)
+
+}
